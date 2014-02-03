@@ -21,6 +21,7 @@
 #
 
 class User < ActiveRecord::Base
+	# before_action :authenticate_user!, except: [:index]
 	has_many :phrases
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
