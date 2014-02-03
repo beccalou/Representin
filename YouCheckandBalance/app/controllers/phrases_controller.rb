@@ -1,10 +1,11 @@
 class PhrasesController < ApplicationController
 	def index
-		@phrase = Phrase.new
-		@phrase.save!
+		@phrases = Phrase.where(user_id: params[:id])
 	end
 
 	def new
+		@phrases = Phrase.new
+		@phrase.save!
 	end
 
 	def create
@@ -13,4 +14,10 @@ class PhrasesController < ApplicationController
 	def update
 	end
 
+end
+
+private
+
+def user_params
+	params.require(:user).permit(:first_name, :last_name, :address, :email)
 end

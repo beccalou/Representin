@@ -1,5 +1,7 @@
 YouCheckandBalance::Application.routes.draw do
-  devise_for :users do
+  devise_for :users
+
+  resources :users do
     resources  :phrases
     resources  :legislators
   end
