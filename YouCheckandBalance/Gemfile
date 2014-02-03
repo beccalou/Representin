@@ -4,7 +4,7 @@ gem 'pry-rails'
 
 gem 'devise'
 
-gem 'sunlight'
+gem 'congress'
 
 gem 'geocoder'
 
