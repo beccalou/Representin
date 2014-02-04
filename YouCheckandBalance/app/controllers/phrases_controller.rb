@@ -4,10 +4,8 @@ class PhrasesController < ApplicationController
 	end
 
 	def new
-		@phrase = Phrase.create
+		@phrase = Phrase.new
 		@user = current_user
-		@phrase.save!
-		@user.save!
 	end
 
 	def create
@@ -15,7 +13,7 @@ class PhrasesController < ApplicationController
 
     	if @phrase.save
       	flash[:notice] = 'Added a new phrase!'
-      	redirect_to @phrase
+      	redirect_to user_path(current_user.id)
     	else
       	flash.now[:errors] = @phrase.errors.full_messages
       	render :new
@@ -43,5 +41,5 @@ end
 private
 
 def phrase_params
-	params.require(:phrase).permit(:phrase)
+	params.require(:phrase).permit(:phrase, :user_id)
 end
