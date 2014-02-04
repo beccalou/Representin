@@ -4,7 +4,8 @@ class PhrasesController < ApplicationController
 	end
 
 	def new
-		@phrases = Phrase.new
+		@phrase = Phrase.new
+		@user = current_user
 		@phrase.save!
 	end
 
@@ -20,12 +21,17 @@ class PhrasesController < ApplicationController
     	end
 	end
 
-	def edit
-		@phrases = Phrase.where(user_id: params[:id]).first
+	def show
 	end
 
 	def update
 	end
+
+	def edit
+		@phrases = Phrase.where(user_id: params[:id]).first
+	end
+
+
 
 end
 
