@@ -1,11 +1,3 @@
 class Legislator < ActiveRecord::Base
-	belongs_to :users
-
-	def  find_legislator
-	find =
-	end
-
-	def find_legislator_phrase
-	end
-
+	has_and_belongs_to_many :users
 end

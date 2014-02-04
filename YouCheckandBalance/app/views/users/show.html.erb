@@ -1,7 +1,8 @@
 <h1>Overview for</h1>
-<%= @user.email %>
+<h4><%= @user.email %></h4>
 <ul>
 <% @phrases.each do |phrase| %>
 	<li><%= phrase.phrase %></li>
+	<%= link_to 'Edit', edit_user_phrase_path(:user_id, params[:id])%>
 	<%end%>
 </ul>

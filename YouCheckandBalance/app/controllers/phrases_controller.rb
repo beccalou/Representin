@@ -27,11 +27,20 @@ class PhrasesController < ApplicationController
 
 	def update
 		@phrase = Phrase.find(params[:id])
-		@user = current_user
+    	if @phrase.save
+      	flash[:notice] = 'Phrase updated!'
+      	redirect_to user_phrases_path(current_user.id)
+    	else
+      	flash.now[:errors] = @phrase.errors.full_messages
+      	render :new
+			end
 	end
 
 	def edit
-		@phrases = Phrase.where(user_id: params[:id]).first
+		@phrase = Phrase.find(params[:id])
+		@user = current_user
+		@phrase.save!
+		@user.save!
 	end
 
 

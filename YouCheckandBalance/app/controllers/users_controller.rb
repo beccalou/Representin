@@ -1,13 +1,8 @@
 class UsersController < ApplicationController
 
 	def index
-
-	end
-
-	def new
-	end
-
-	def create
+		@phrases = Phrase.where(user_id: params[:id])
+		@user = current_user
 	end
 
 	def show

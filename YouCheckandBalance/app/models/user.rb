@@ -23,7 +23,7 @@
 class User < ActiveRecord::Base
 	# before_action :authenticate_user!, except: [:index]
 	has_many :phrases
-	has_many :legislators
+	has_and_belongs_to_many :legislators
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,

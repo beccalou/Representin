@@ -1,8 +1,10 @@
-<%= form_for @phrases do |form| %>
-<% binding.pry %>
-  <div>
-    <%= form.label :phrase %>
-    <%= form.text_field :phrase %>
-  </div>
-  <%= form.submit %>
-<% end %>
+<h1>Edit</h1>
+
+<%= form_for [@user, @phrase] do |form| %>
+	<div>
+		<%= form.label :phrase %>
+		<%= form.hidden_field :user_id, value: current_user.id %>
+		<%= form.text_field :phrase %>
+	</div>
+		<%= form.submit %>
+	<% end %>

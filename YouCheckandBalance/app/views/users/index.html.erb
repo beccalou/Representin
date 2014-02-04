@@ -1,1 +1,7 @@
-<h1>jwkhj</h1>
+<h1>Phrases You're Tracking</h1>
+
+<ul>
+	<%=@phrases.each do |phrase|%>
+		<li><%=phrase.phrase%></li>
+</ul>
+<%end%>
