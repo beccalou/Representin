@@ -22,6 +22,8 @@ class PhrasesController < ApplicationController
 	end
 
 	def show
+		@phrase = Phrase.find(params[:id])
+		@user = current_user
 	end
 
 	def update
