@@ -11,6 +11,10 @@ class PhrasesController < ApplicationController
 	def create
 	end
 
+	def edit
+		@phrases = Phrase.where(user_id: params[:id]).first
+	end
+
 	def update
 	end
 
