@@ -12,9 +12,10 @@ class UsersController < ApplicationController
 
 	def show
 		@user = User.find(params[:id])
+		@phrases = Phrase.where(user_id: params[:id])
 	end
 
-	def update
+	def edit
 	end
 
 	def update

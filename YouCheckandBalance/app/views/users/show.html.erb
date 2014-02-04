@@ -1,2 +1,7 @@
 <h1>Overview for</h1>
 <%= @user.email %>
+<ul>
+<% @phrases.each do |phrase| %>
+	<li><%= phrase.phrase %></li>
+	<%end%>
+</ul>
