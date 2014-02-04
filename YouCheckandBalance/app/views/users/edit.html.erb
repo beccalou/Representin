@@ -1,0 +1,10 @@
+<h1>Update Your Address</h1>
+
+<%= form_for @user do |f| %>
+
+	<div>
+		<%= f.label :address %>
+		<%= f.text_field :address %>
+	</div>
+		<%= f.submit %>
+	<% end %>
