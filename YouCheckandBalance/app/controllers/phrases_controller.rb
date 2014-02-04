@@ -9,6 +9,15 @@ class PhrasesController < ApplicationController
 	end
 
 	def create
+		@phrase = Phrase.new(phrase_params)
+
+    	if @phrase.save
+      	flash[:notice] = 'Added a new phrase!'
+      	redirect_to @phrase
+    	else
+      	flash.now[:errors] = @phrase.errors.full_messages
+      	render :new
+    	end
 	end
 
 	def edit
@@ -22,6 +31,6 @@ end
 
 private
 
-def user_params
-	params.require(:user).permit(:first_name, :last_name, :address, :email)
+def phrase_params
+	params.require(:phrase).permit(:phrase)
 end
