@@ -4,9 +4,10 @@ class PhrasesController < ApplicationController
 	end
 
 	def new
-		@phrase = Phrase.new
+		@phrase = Phrase.create
 		@user = current_user
 		@phrase.save!
+		@user.save!
 	end
 
 	def create
@@ -27,6 +28,8 @@ class PhrasesController < ApplicationController
 	end
 
 	def update
+		@phrase = Phrase.find(params[:id])
+		@user = current_user
 	end
 
 	def edit
