@@ -44,11 +44,9 @@ class PhrasesController < ApplicationController
 	end
 
 	def destroy
-		@phrase = Phrase.find(params[:id])
-		@user = current_user
-		@phrase.save!
-		@user.save!
-		redirect_to user_phrase_path
+		@phrase.destoy if @phrase == Phrase.find(params[:id]) &&
+			@user = current_user
+		redirect_to user_path(current_user.id)
 	end
 
 end

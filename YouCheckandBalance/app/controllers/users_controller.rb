@@ -26,7 +26,7 @@ class UsersController < ApplicationController
 
 	def update
 		@user = User.find(current_user.id)
-
+		@user.assign_attributes(user_params)
     	if @user.save
       	flash[:notice] = 'Address Updated!'
       	redirect_to user_path(current_user.id)
