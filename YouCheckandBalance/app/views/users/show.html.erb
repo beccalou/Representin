@@ -30,6 +30,7 @@
 <% @phrases.each do |phrase| %>
 	<li><%= phrase.phrase %></li>
 	<%= link_to 'Edit', edit_user_phrase_path(@user, phrase)%>
+	<%= link_to 'Delete'%>
 	<%end%>
 </ul>
 

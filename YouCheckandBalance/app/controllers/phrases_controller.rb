@@ -29,7 +29,7 @@ class PhrasesController < ApplicationController
 		@phrase = Phrase.find(params[:id])
     	if @phrase.save
       	flash[:notice] = 'Phrase updated!'
-      	redirect_to user_phrases_path(current_user.id)
+      	redirect_to user_path(current_user.id)
     	else
       	flash.now[:errors] = @phrase.errors.full_messages
       	render :new
@@ -43,13 +43,18 @@ class PhrasesController < ApplicationController
 		@user.save!
 	end
 
-
+	def destroy
+		@phrase = Phrase.find(params[:id])
+		@user = current_user
+		@phrase.save!
+		@user.save!
+		redirect_to user_phrase_path
+	end
 
 end
 
 private
 
 def phrase_params
-	binding.pry
 	params.require(:phrase).permit(:phrase, :user_id)
 end
