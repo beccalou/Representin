@@ -50,5 +50,6 @@ end
 private
 
 def phrase_params
+	binding.pry
 	params.require(:phrase).permit(:phrase, :user_id)
 end

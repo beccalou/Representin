@@ -10,6 +10,7 @@
 	<li>Chamber: <%= legislator.chamber %></li>
 	<li>Twitter: <%= legislator.twitter_id%></li>
 	<li>YouTube: <%= legislator.youtube_id%></li>
+
 	</br>
 	<%end%>
 </ul>
@@ -17,10 +18,13 @@
 <h2>Your Bills</h2>
 
 <ul>
-	<%= @bills.each do |bill| %>
-		<li>bill</li>
-		<%end%>
+	<% @bills%>
+	<li></li>
+
+
 </ul>
+
+<h2>Your Phrases</h2>
 
 <ul>
 <% @phrases.each do |phrase| %>

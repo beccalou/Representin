@@ -6,7 +6,12 @@ class UsersController < ApplicationController
 			@user = current_user
 			@phrases = @user.phrases
 			@legislators = Congress.legislators_locate(current_user.address)['results']
-			@bills = Congress.bills_search(:query => "#{@phrases}")
+			@word = @phrases.first
+			@word1 = @phrases[1]
+			@word2 = @phrases[2]
+			@bills = Congress.bills_search(:query => "#{@word}"){'results'}
+			@bills1 = Congress.bills_search(:query => "#{@word1}"){'results'}
+			@bills2 = Congress.bills_search(:query => "#{@word2}"){'results'}
 			@new_phrase = Phrase.new
 			# @phrases = Phrase.where(user_id: params[:id])
 		else
