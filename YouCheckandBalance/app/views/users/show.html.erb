@@ -1,8 +1,42 @@
 <h1>Overview for</h1>
 <h4><%= @user.email %></h4>
+
+<h2>Your Legislators</h2>
+<ul>
+<% @legislators.each do |legislator| %>
+
+	<li>First Name: <%= legislator.first_name %></li>
+	<li>Last Name: <%= legislator.last_name %></li>
+	<li>Chamber: <%= legislator.chamber %></li>
+	<li>Twitter: <%= legislator.twitter_id%></li>
+	<li>YouTube: <%= legislator.youtube_id%></li>
+	</br>
+	<%end%>
+</ul>
+
+<h2>Your Bills</h2>
+
+<ul>
+	<%= @bills.each do |bill| %>
+		<li>bill</li>
+		<%end%>
+</ul>
+
 <ul>
 <% @phrases.each do |phrase| %>
 	<li><%= phrase.phrase %></li>
-	<%= link_to 'Edit', edit_user_phrase_path(:user_id, params[:id])%>
+	<%= link_to 'Edit', edit_user_phrase_path(@user, phrase)%>
 	<%end%>
 </ul>
+
+<h1>Add Your Phrases</h1>
+
+<%= form_for [@user, @new_phrase] do |f| %>
+
+  <div>
+    <%= f.label :phrase %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <%= f.text_field :phrase %>
+  </div>
+  <%= f.submit %>
+<% end %>

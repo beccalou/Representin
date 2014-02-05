@@ -5,7 +5,8 @@ YouCheckandBalance::Application.routes.draw do
     resources  :phrases
     resources  :legislators
   end
-  root :to => "users#index"
+  # root :to => "phrases#index"
+  root :to => "users#show"
 
 end
   # The priority is based upon order of creation: first created -> highest priority.

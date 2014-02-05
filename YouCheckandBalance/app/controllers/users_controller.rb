@@ -1,13 +1,18 @@
 class UsersController < ApplicationController
 
-	def index
-		@phrases = Phrase.where(user_id: params[:id])
-		@user = current_user
-	end
-
 	def show
-		@user = User.find(params[:id])
-		@phrases = Phrase.where(user_id: params[:id])
+		if current_user
+			# @user = User.find(params[:id])
+			@user = current_user
+			@phrases = @user.phrases
+			@legislators = Congress.legislators_locate(current_user.address)['results']
+			@bills = Congress.bills_search(:query => "#{@phrases}")
+			@new_phrase = Phrase.new
+			# @phrases = Phrase.where(user_id: params[:id])
+		else
+			# render text: "Please Sign In"
+			redirect_to users_path
+		end
 	end
 
 	def edit
@@ -15,6 +20,15 @@ class UsersController < ApplicationController
 	end
 
 	def update
+		@user = User.find(current_user.id)
+
+    	if @user.save
+      	flash[:notice] = 'Address Updated!'
+      	redirect_to user_path(current_user.id)
+    	else
+      	flash.now[:errors] = @user.errors.full_messages
+      	render :edit
+    	end
 	end
 
 end
