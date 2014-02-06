@@ -18,8 +18,9 @@
 <ul>
 <% @phrases.each do |phrase| %>
 	<li><%= phrase.phrase %></li>
-	<%= link_to 'Edit', edit_user_phrase_path(@user, phrase) %>
-	<%= link_to 'Delete', :method => :delete %>
+	<%= link_to 'Change this phrase', edit_user_phrase_path(@user, phrase) %>
+	<%#= link_to 'Delete', :method => :delete %>
+	<%#= link_to 'create' %>
 <% end %>
 </ul>
 
@@ -29,23 +30,24 @@
 	<% @bills.each do |bill| %>
 	<li>Bill's official title:<%= bill.official_title %></li>
 	<li>Bill's chamber:<%= bill.chamber %></li>
-	<li>Enacted?: <%= bill.history.enacted %>
-	<li>Check it out:
-	<% bill.urls.each do |k,v| %></li>
-	<%= link_to k, v %>
+	<li>Learn more about this bill:<% bill.urls.each do |k,v| %>
+	<%= link_to k, v %></li>
+
 	<% end %>
 	<% end %>
 </ul>
 
+<h3>Upcoming Bills</h3>
 
-<h1>Add A Phrase</h1>
 
-<%= form_for [@user, @new_phrase] do |f| %>
+<!-- <h1>Add A Phrase</h1> -->
 
-  <div>
-    <%= f.label :phrase %>
-    <%= f.hidden_field :user_id, value: current_user.id %>
-    <%= f.text_field :phrase %>
-  </div>
-  <%= f.submit %>
-<% end %>
+<%#= form_for [@user, @new_phrase] do |f| %>
+
+  <!-- <div> -->
+    <%#= f.label :phrase %>
+    <%#= f.hidden_field :user_id, value: current_user.id %>
+    <%#= f.text_field :phrase %>
+  <!-- </div>
+  <%#= f.su -->bmit %>
+# <#% end %>
