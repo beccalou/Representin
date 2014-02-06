@@ -18,9 +18,14 @@
 <h2>Your Bills</h2>
 
 <ul>
-	<% @bills%>
-	<li></li>
+	<%=@bills.each do |bill|%>
+	<li>Bill's short title:<%=bill.short_title%></li>
+	<li>Bill's official title:<%=bill.official_title%></li>
+	<li>Bills chamber:<%=bill.chamber%></li>
+	<li>Has the bill been enacted:<%=bill.enacted%></li>
+	<li>When was the last action on this bill:<%=bill.last_action_at%></li>
 
+<%end%>
 
 </ul>
 
