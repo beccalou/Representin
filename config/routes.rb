@@ -6,8 +6,9 @@ YouCheckandBalance::Application.routes.draw do
     resources  :legislators
   end
   # root :to => "phrases#index"
-  root :to => "users#show"
-
+  devise_scope :user do
+    root :to => "devise/sessions#new"
+  end
 end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

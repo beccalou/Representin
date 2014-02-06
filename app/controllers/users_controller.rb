@@ -1,20 +1,17 @@
 class UsersController < ApplicationController
 
 	def show
-		if current_user
-			# @user = User.find(params[:id])
-			@user = current_user
-			@phrases = @user.phrases
-			@legislators = Congress.legislators_locate(current_user.address)['results']
-			@word = @phrases.first
-			@word_search = @word.phrase
-			@bills = Congress.bills_search(:query => @word_search)['results']
-			@new_phrase = Phrase.new
-			# @phrases = Phrase.where(user_id: params[:id])
-		else
-			# render text: "Please Sign In"
-			redirect_to users_path
-		end
+		@user = current_user
+		@phrases = @user.phrases
+			if @phrases.count > 0
+				@legislators = Congress.legislators_locate(current_user.address)['results']
+				@word = @phrases.first.phrase
+				@bills = Congress.bills_search(:query => @word, 'history.enacted' => 'false' )['results']
+				@new_phrase = Phrase.new
+				# @phrases = Phrase.where(user_id: params[:id])
+			else
+				redirect_to new_user_phrase_path(current_user)
+			end
 	end
 
 	def edit

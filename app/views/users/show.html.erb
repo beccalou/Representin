@@ -1,44 +1,44 @@
-<h1>Overview for</h1>
-<h4><%= @user.email %></h4>
+<h1>Check Your Bills Overview for <%=@user.first_name%></h1>
 
-<h2>Your Legislators</h2>
+<h2><%= @user.first_name %>'s Legislators</h2>
 <ul>
 <% @legislators.each do |legislator| %>
 
 	<li>First Name: <%= legislator.first_name %></li>
 	<li>Last Name: <%= legislator.last_name %></li>
 	<li>Chamber: <%= legislator.chamber %></li>
-	<li>Twitter: <%= legislator.twitter_id%></li>
-	<li>YouTube: <%= legislator.youtube_id%></li>
-
+	<li>Twitter: <%= legislator.twitter_id %></li>
+	<li>YouTube: <%= legislator.youtube_id %></li>
 	</br>
-	<%end%>
+<% end %>
 </ul>
 
-<h2>Your Bills</h2>
-
-<ul>
-	<%@bills.each do |bill|%>
-	<li>Bill's official title:<%=bill.official_title%></li>
-	<li>Bill's chamber:<%=bill.chamber%></li>
-	<li>Has the bill been enacted:<%=bill.enacted%></li>
-	<li>When was the last action on this bill:<%=bill.last_action_at%></li>
-
-<%end%>
-
-</ul>
-
-<h2>Your Phrases</h2>
+<h2><%= @user.first_name%> Phrases</h2>
 
 <ul>
 <% @phrases.each do |phrase| %>
 	<li><%= phrase.phrase %></li>
-	<%= link_to 'Edit', edit_user_phrase_path(@user, phrase)%>
-	<%= link_to 'Delete', :method => :delete%>
-	<%end%>
+	<%= link_to 'Edit', edit_user_phrase_path(@user, phrase) %>
+	<%= link_to 'Delete', :method => :delete %>
+<% end %>
 </ul>
 
-<h1>Add Your Phrases</h1>
+<h2><%= @user.first_name%>, you're checking | <%= @word %></h2>
+
+<ul>
+	<% @bills.each do |bill| %>
+	<li>Bill's official title:<%= bill.official_title %></li>
+	<li>Bill's chamber:<%= bill.chamber %></li>
+	<li>Enacted?: <%= bill.history.enacted %>
+	<li>Check it out:
+	<% bill.urls.each do |k,v| %></li>
+	<%= link_to k, v %>
+	<% end %>
+	<% end %>
+</ul>
+
+
+<h1>Add A Phrase</h1>
 
 <%= form_for [@user, @new_phrase] do |f| %>
 
