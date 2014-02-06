@@ -27,6 +27,7 @@ class PhrasesController < ApplicationController
 
 	def update
 		@phrase = Phrase.find(params[:id])
+		@phrase.assign_attributes(phrase_params)
     	if @phrase.save
       	flash[:notice] = 'Phrase updated!'
       	redirect_to user_path(current_user.id)

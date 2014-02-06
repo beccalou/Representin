@@ -18,7 +18,7 @@
 <h2>Your Bills</h2>
 
 <ul>
-	<%=@bills.each do |bill|%>
+	<%@bills.each do |bill|%>
 	<li>Bill's short title:<%=bill.short_title%></li>
 	<li>Bill's official title:<%=bill.official_title%></li>
 	<li>Bills chamber:<%=bill.chamber%></li>
