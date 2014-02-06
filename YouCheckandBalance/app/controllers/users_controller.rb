@@ -7,7 +7,7 @@ class UsersController < ApplicationController
 			@phrases = @user.phrases
 			@legislators = Congress.legislators_locate(current_user.address)['results']
 			@word = @phrases.first
-			@word_search =@word.phrase
+			@word_search = @word.phrase
 			@word1 = @phrases[1]
 			@word2 = @phrases[2]
 			@bills = Congress.bills_search(:query => @word_search)['results']
