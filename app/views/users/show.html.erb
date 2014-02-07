@@ -1,8 +1,9 @@
 <h1>Check Your Bills: Overview for <%= @user.first_name.capitalize %></h1>
 
 <h2><%= @user.first_name.capitalize %>'s Legislators</h2>
+
 <ul>
-<% @legislators.each do |legislator| %>
+	<% @legislators.each do |legislator| %>
 
 	<li>First Name: <%= legislator.first_name %></li>
 	<li>Last Name: <%= legislator.last_name %></li>
@@ -10,32 +11,32 @@
 	<li>Twitter: <%= legislator.twitter_id %></li>
 	<li>YouTube: <%= legislator.youtube_id %></li>
 	</br>
-<% end %>
+	<% end %>
 </ul>
 
 <h2><%= @user.first_name.capitalize %>'s Phrase</h2>
 
 <ul>
-<% @phrases.each do |phrase| %>
+	<% @phrases.each do |phrase| %>
 	<li><%= phrase.phrase.capitalize %> |
 	<%= link_to 'Change this phrase', edit_user_phrase_path(@user, phrase) %></li>
 	<%#= link_to 'Delete', :method => :delete %>
 	<%#= link_to 'create' %>
-<% end %>
+	<% end %>
 </ul>
 
 <h2><%= @user.first_name.capitalize %>, there are <%=@bills.count%> pending bills that mention | <%= @word.capitalize %></h2>
 
-	<ul>
-		<% @bills.each do |bill| %>
-		<li><i>Official Title:</i> <b><%= bill.official_title %></b></li>
-		<li>Chamber: <%= bill.chamber.capitalize %></li>
-		<li>Learn more: <% bill.urls.each do |k,v| %></li><%= link_to k, v %>
+<ul>
+	<% @bills.each do |bill| %>
+	<li><i>Official Title:</i> <b><%= bill.official_title %></b></li>
+	<li>Chamber: <%= bill.chamber.capitalize %></li>
+	<li>Learn more: <% bill.urls.each do |k,v| %></li><%= link_to k, v %>
 
-		<% end %>
-		<% end %>
-		</br>
-		</ul>
+	<% end %>
+	<% end %>
+	</br>
+</ul>
 
 
 <!-- <h3>Upcoming Bills</h3> -->
