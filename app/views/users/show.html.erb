@@ -1,42 +1,62 @@
 <h1>Check Your Bills: Overview for <%= @user.first_name.capitalize %></h1>
 
-<h2><%= @user.first_name.capitalize %>'s Legislators</h2>
+<div class ="panel panel-default">
 
-<ul>
-	<% @legislators.each do |legislator| %>
+	<div class = "panel-heading">
+		<h2><%= @user.first_name.capitalize %>'s Legislators</h2>
+	</div>
 
-	<li>First Name: <%= legislator.first_name %></li>
-	<li>Last Name: <%= legislator.last_name %></li>
-	<li>Chamber: <%= legislator.chamber.capitalize %></li>
-	<li>Twitter: <%= legislator.twitter_id %></li>
-	<li>YouTube: <%= legislator.youtube_id %></li>
-	</br>
-	<% end %>
-</ul>
 
-<h2><%= @user.first_name.capitalize %>'s Phrase</h2>
+	<ul>
+		<% @legislators.each do |legislator| %>
+			<div class = "panel">
+					<li>First Name: <%= legislator.first_name %></li>
+					<li>Last Name: <%= legislator.last_name %></li>
+					<li>Chamber: <%= legislator.chamber.capitalize %></li>
+					<li>Twitter: <%= legislator.twitter_id %></li>
+					<li>YouTube: <%= legislator.youtube_id %></li>
+					</br>
+			</div>
+		<% end %>
+	</ul>
+</div>
 
-<ul>
-	<% @phrases.each do |phrase| %>
-	<li><%= phrase.phrase.capitalize %> |
-	<%= link_to 'Change this phrase', edit_user_phrase_path(@user, phrase) %></li>
-	<%#= link_to 'Delete', :method => :delete %>
-	<%#= link_to 'create' %>
-	<% end %>
-</ul>
+<div class = "panel panel-default">
 
-<h2><%= @user.first_name.capitalize %>, there are <%=@bills.count%> pending bills that mention | <%= @word.capitalize %></h2>
+	<div class = "panel-heading">
+		<h2><%= @user.first_name.capitalize %>'s Phrase</h2>
+	</div>
 
-<ul>
-	<% @bills.each do |bill| %>
-	<li><i>Official Title:</i> <b><%= bill.official_title %></b></li>
-	<li>Chamber: <%= bill.chamber.capitalize %></li>
-	<li>Learn more: <% bill.urls.each do |k,v| %></li><%= link_to k, v %>
+	<ul>
+		<% @phrases.each do |phrase| %>
+		<div class = "panel">
+			<li><%= phrase.phrase.capitalize %> |
+			<%= link_to 'Change this phrase', edit_user_phrase_path(@user, phrase) %></li>
+		</div>
+		<%#= link_to 'Delete', :method => :delete %>
+		<%#= link_to 'create' %>
+		<% end %>
+	</ul>
+</div>
 
-	<% end %>
-	<% end %>
-	</br>
-</ul>
+<div class ="panel panel-default">
+	<div class ="panel-heading">
+
+	<h2><%= @user.first_name.capitalize %>, there are <%=@bills.count%> pending bills that mention | <%= @word.capitalize %></h2>
+	</div>
+
+	<ul>
+		<% @bills.each do |bill| %>
+
+		<div class ="panel">
+		<li><i>Official Title:</i> <b><%= bill.official_title %></b></li>
+		<li>Chamber: <%= bill.chamber.capitalize %></li>
+		<li>Learn more: <% bill.urls.each do |k,v| %><%= link_to k, v %>, <% end %></li>
+		</div>
+		<% end %>
+		</br>
+	</ul>
+</div>
 
 
 <!-- <h3>Upcoming Bills</h3> -->

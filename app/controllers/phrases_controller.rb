@@ -54,6 +54,6 @@ end
 
 private
 
-def phrase_params
-	params.require(:phrase).permit(:phrase, :user_id)
-end
+	def phrase_params
+		params.require(:phrase).permit(:phrase, :user_id)
+	end
