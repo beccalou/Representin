@@ -10,8 +10,8 @@
 
 	<h3>
 		<%if user_signed_in?%>
-			<%= current_user.email %> | <%= link_to 'Sign out', destroy_user_session_path, method: 'delete'%> |
-			<%= link_to 'Edit Your Phrases', new_user_phrase_path(:user_id)%> |
+			<%= current_user.email %> | <%= link_to 'Sign out', destroy_user_session_path, method: 'delete'%>
+			<%#= link_to 'Edit Your Phrases', new_user_phrase_path(:user_id)%> |
 			<%= current_user.address %> <%= link_to 'Edit Your Location', edit_user_path(:user_id)%>
 		<%else%>
 			<%= link_to 'Sign in', new_user_session_path%> or
