@@ -24,6 +24,11 @@ class User < ActiveRecord::Base
 	# before_action :authenticate_user!, except: [:index]
 	has_many :phrases
 	has_and_belongs_to_many :legislators
+
+	validates :first_name, presence: true
+	validates :last_name, presence: true
+	validates :address, presence: true
+	validates :email, presence: true
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,

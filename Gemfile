@@ -12,6 +12,8 @@ gem 'geocoder'
 
 gem 'bootstrap-sass', '~> 3.1.0'
 
+gem 'newrelic_rpm'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.2'
 
@@ -49,6 +51,15 @@ gem 'dotenv-rails', :groups => [:development, :test]
 group :production do
 	gem 'rails_12factor'
 end
+
+group :development, :test do
+  gem 'rspec-rails', '~> 3.0.0.beta'
+  gem 'database_cleaner'
+  gem 'shoulda-matchers'
+  gem 'guard-rspec', require: false
+end
+
+gem 'simplecov', require: false, group: :test
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
