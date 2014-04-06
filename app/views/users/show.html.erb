@@ -1,4 +1,4 @@
-<h1>Check Your Bills: Overview for <%= @user.first_name.capitalize %></h1>
+<h1>Overview for <%= @user.first_name.capitalize %></h1>
 
 <div class ="panel panel-default">
 
@@ -10,12 +10,10 @@
 	<ul>
 		<% @legislators.each do |legislator| %>
 			<div class = "panel">
-					<li>First Name: <%= legislator.first_name %></li>
-					<li>Last Name: <%= legislator.last_name %></li>
+					<li><strong><%= legislator.first_name %> <%= legislator.last_name %></strong></li>
 					<li>Chamber: <%= legislator.chamber.capitalize %></li>
 					<li>Twitter: <%= legislator.twitter_id %></li>
 					<li>YouTube: <%= legislator.youtube_id %></li>
-					</br>
 			</div>
 		<% end %>
 	</ul>
