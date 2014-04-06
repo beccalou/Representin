@@ -2,7 +2,8 @@
 <html>
 <head>
   <title>Representin'</title>
-  <link href='http://fonts.googleapis.com/css?family=Carme' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Special+Elite' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Macondo+Swash+Caps' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
@@ -13,8 +14,7 @@
 	<header>
 	<div class ="container">
 	<h1>Representin'</h1>
-
-		<h3>
+	<h3>find pending legislation on the issues that matter to you</h3>
 			<%if user_signed_in?%>
 				<%= current_user.email %> | <%= link_to 'Sign out', destroy_user_session_path, method: 'delete'%>
 				<%#= link_to 'Edit Your Phrases', new_user_phrase_path(:user_id)%> |
@@ -23,7 +23,7 @@
 				<%= link_to 'Sign in', new_user_session_path%> or
 				<%= link_to 'Sign up', new_user_registration_path%>
 			<%end%>
-		</h3>
+		</h4>
 	</div>
 	</header>
 	<div class ="container">
