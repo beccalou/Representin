@@ -14,10 +14,32 @@
  *= require_tree .
  */
 
+body {
+  /*background-image: image-url("constitution.jpg");*/
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  }
+
 header {
-	font-family: 'Carme', sans-serif;
-	background-color: #B0E0E6;
+  color: white;
+	font-family: 'Special Elite', cursive;
+	background-color: black;
 	padding-bottom: 20px;
 	border-bottom: 2px solid #68838B;
+  -webkit-border-radius: 75px;
+  -moz-border-radius: 75px;
+  border-radius: 75px;
 
+}
+
+h4 {
+  font-family: 'Special Elite', cursive;
+}
+
+li {
+  list-style-type: none;
+}
+
+.center {
+  text-align: center;
 }
