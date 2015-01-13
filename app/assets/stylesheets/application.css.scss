@@ -15,11 +15,53 @@
  */
 
 body {
-  /*background-image: image-url("constitution.jpg");*/
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-  }
+  font-family: paytone-one, sans-serif;
+}
 
+video {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+  background-size: cover;
+}
+
+/*****************************/
+
+.overlay {
+  width: 400px;
+  height: 400px;
+  border: 1px solid rgb(191, 145, 190);
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  background: rgba(0,0,0,0.3);
+  display: block;
+  position: absolute;
+  top: 10%;
+  left: 60%;
+}
+
+.overlay h1 {
+  font-size: 3.5em;
+  text-align: center;
+  padding-top: 100px;
+  color: #fff;
+  font-family: inherit;
+}
+
+.overlay p {
+  text-align: center;
+  width: 80%;
+  margin: 0 auto;
+  color: #fff;
+  font-family: inherit;
+  margin-bottom: 20px;
+}
 header {
   color: white;
 	font-family: 'Special Elite', cursive;
@@ -42,4 +84,11 @@ li {
 
 .center {
   text-align: center;
+  margin-top: 400px;
+  color: #fff;
+}
+
+video {
+  width: 100%    !important;
+  height: auto   !important;
 }

@@ -9,12 +9,14 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-
-	<header>
+  
+  <%=video_tag "Project-One-Movie.mp4", :size=>"100% x 540", :autoplay=>true, :loop=>true %>
+ 
+ <div class="overlay">
+   <h1>What Matters to You?</h1>
+   <p>find and keep tabs on the people entrusted and elected to represent you.</p>
+ </div>
 	<div class ="container">
-	<h1>Representin'</h1>
-	<h3>find pending legislation on the issues that matter to you</h3>
 			<%if user_signed_in?%>
 				<%= current_user.email %> | <%= link_to 'Sign out', destroy_user_session_path, method: 'delete'%>
 				<%#= link_to 'Edit Your Phrases', new_user_phrase_path(:user_id)%> |
