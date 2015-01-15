@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>Representin'</title>
-  <link href='http://fonts.googleapis.com/css?family=Special+Elite' rel='stylesheet' type='text/css'>
+  <script src="http://use.edgefonts.net/alfa-slab-one;fredericka-the-great.js"></script>
   <link href='http://fonts.googleapis.com/css?family=Macondo+Swash+Caps' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
@@ -10,9 +10,9 @@
 </head>
 <body>
  <%=video_tag "State-of-Union.mp4", :size=>"100% x 540", :autoplay=>true, :loop=>true %>
- <div class="overlay">
-   <h1>What Matters to You?</h1>
-   <p>find and keep tabs on the people entrusted and elected to represent you.</p>
+ <div class="overlay blur">
+   <h1>What Matters To You ?</h1>
+   <p>find and keep tabs on the people<strong> <span style="color: rgba(250, 38, 38, 0.7)">entrusted </span></strong> and <strong><span style="color: rgba(250, 38, 38, 0.7)">elected </span></strong>to represent <strong>you</strong></p>
  </div>
 	<div class ="container">
 			<%if user_signed_in?%>
@@ -23,9 +23,7 @@
 				<%= link_to 'Sign in', new_user_session_path%> or
 				<%= link_to 'Sign up', new_user_registration_path%>
 			<%end%>
-		</h4>
 	</div>
-	</header>
 	<div class ="container">
 		<p class="notice"><%= notice %></p>
 	  <p class="alert"><%= alert %></p>
