@@ -1,12 +1,18 @@
-<!-- <h4>a simple app to track the pending legislation that matters to you</h4>
- -->
+<div>
+  <%=video_tag "State-of-Union.mp4", :size=>"100% x 540", :autoplay=>true, :loop=>true %>
+  <div class="overlay blur">
+    <h1>What Matters To You ?</h1>
+    <p>find and keep tabs on the people<strong> <span style="color: rgba(250, 38, 38, 0.7)">entrusted </span></strong> and <strong><span style="color: rgba(250, 38, 38, 0.7)">elected </span></strong>to represent <strong>you</strong></p>
+ </div>
+
+
  <div class="center">
   <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
     <div><%= f.label :email %><br />
-    <%= f.email_field :email, :autofocus => true %></div>
+    <%= f.email_field :email, :autofocus => true, placeholder: "Email" %></div>
 
     <div><%= f.label :password %><br />
-    <%= f.password_field :password %></div>
+    <%= f.password_field :password, placeholder: "Password" %></div>
 
     <% if devise_mapping.rememberable? -%>
       <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
