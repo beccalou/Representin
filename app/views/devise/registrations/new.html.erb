@@ -1,29 +1,29 @@
-<h2>Sign up</h2>
+<h2 class="lato">Sign up</h2>
 
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
-  <div><%= f.label :first_name %><br />
-  <%= f.text_field :first_name, :autofocus => true %></div>
+  <div class="lato"><%= f.label :first_name %><br />
+  <%= f.text_field :first_name, :autofocus => true, placeholder: "First Name" %></div><br />
 
-  <div><%= f.label :last_name %><br />
-  <%= f.text_field :last_name %></div>
+  <div class="lato"><%= f.label :last_name %><br />
+  <%= f.text_field :last_name, placeholder: "Last Name" %></div><br />
 
-  <p>Enter a United States address including city, state, and zip code</p>
-  <p><em> Example: 350 5th Ave, New York, NY 10118 </em></p>
-  <div><%= f.label :address %><br />
-  <%= f.text_field :address %></div>
+  <div class="lato"><%= f.label :address %><br />
+  <%= f.text_field :address, placeholder: "Type your address" %></div>
+  <p class="lato">Enter a United States address including city, state, and zip code</p>
+  <p class="lato"><em> Example: 350 5th Ave, New York, NY 10118 </em></p>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email%></div>
+  <div class="lato"><%= f.label :email %><br />
+  <%= f.email_field :email, placeholder: "Enter your email"%></div><br />
 
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
+  <div class="lato"><%= f.label :password %><br />
+  <%= f.password_field :password, placeholder: "Choose your password" %></div>
 
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
+  <div class="lato"><%= f.label :password_confirmation %><br />
+  <%= f.password_field :password_confirmation, placeholder: "Confirm your password" %></div>
 
-  <div><%= f.submit "Sign up" %></div>
+  <div class="lato"><%= f.submit "Sign up" %></div>
 
 <% end %>
 
