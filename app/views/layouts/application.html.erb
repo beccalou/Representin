@@ -8,7 +8,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-	<div class ="container">
+	<div class ="container lato">
 			<%if user_signed_in?%>
 				<%= current_user.email %> | <%= link_to 'Sign out', destroy_user_session_path, method: 'delete'%>
 				<%#= link_to 'Edit Your Phrases', new_user_phrase_path(:user_id)%> |
